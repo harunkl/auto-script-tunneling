@@ -11,7 +11,7 @@ NC='\033[0m'
 
 # Get system info
 DOMAIN=$(cat /root/domain.txt)
-IP=$(curl -s ifconfig.me)
+IP=$(curl -4 -s ifconfig.me)
 RAM=$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')
 CPU=$(top -bn1 | grep load | awk '{printf "%.2f%%\n", $(NF-2)}')
 UPTIME=$(uptime -p | cut -d " " -f 2-10)
